@@ -1,32 +1,37 @@
-int	ft_strlen(char *str)
-{
-		int	i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lomauric <lomauric@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/26 12:20:11 by lomauric          #+#    #+#             */
+/*   Updated: 2022/09/26 12:22:13 by lomauric         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-			i = 0;
-				while (str[i])
-							i++;
-					return (i);
+int	ft_compstr(char *str, char *to_find)
+{
+	while (*str && *to_find)
+	{
+		if (*str != *to_find)
+			return (0);
+		str++;
+		to_find++;
+	}
+	return (*to_find == '\0');
 }
 
 char	*ft_strstr(char *str, char *to_find)
 {
-		int	i;
-			int	j;
+	char	*start;
 
-				i = 0;
-					if (*to_find == 0)
-								return (str);
-						while (str[i])
-								{
-											if (str[i] == to_find[0])
-														{
-																		j = 0;
-																					while (str[i + j] == to_find[j] && to_find[j])
-																										j++;
-																								if (to_find[j] == 0)
-																													return (&str[i]);
-																										}
-													i++;
-														}
-							return (0);
+	while (*str != '\0')
+	{
+		start = str;
+		if ((*str == *to_find) && ft_compstr(str, to_find))
+			return (start);
+		str++;
+	}
+	return (0);
 }
