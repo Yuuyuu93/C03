@@ -6,11 +6,11 @@
 /*   By: lomauric <lomauric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 14:18:06 by lomauric          #+#    #+#             */
-/*   Updated: 2022/09/25 14:44:20 by lomauric         ###   ########.fr       */
+/*   Updated: 2022/09/26 15:48:14 by lomauric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
 	unsigned int	i;
 

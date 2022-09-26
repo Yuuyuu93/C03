@@ -6,32 +6,27 @@
 /*   By: lomauric <lomauric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:20:11 by lomauric          #+#    #+#             */
-/*   Updated: 2022/09/26 12:22:13 by lomauric         ###   ########.fr       */
+/*   Updated: 2022/09/26 15:58:08 by lomauric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_compstr(char *str, char *to_find)
-{
-	while (*str && *to_find)
-	{
-		if (*str != *to_find)
-			return (0);
-		str++;
-		to_find++;
-	}
-	return (*to_find == '\0');
-}
-
 char	*ft_strstr(char *str, char *to_find)
 {
-	char	*start;
+	int	s;
+	int	t;
 
-	while (*str != '\0')
+	s = 0;
+	t = 0;
+	if (to_find[t] == '\0')
+		return (str);
+	while (str[s] != '\0')
 	{
-		start = str;
-		if ((*str == *to_find) && ft_compstr(str, to_find))
-			return (start);
-		str++;
+		while (str[s + t] == to_find && str[s + t] != '\0')
+			t++;
+		if (to_find[t] == '\0')
+			return (str + s);
+		s++;
+		t = 0;
 	}
 	return (0);
 }
